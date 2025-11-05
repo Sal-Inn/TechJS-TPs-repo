@@ -1,0 +1,21 @@
+//- views/layout.pug
+doctype html
+html(lang="fr")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title || 'Auth + Books'
+    script(src="https://cdn.tailwindcss.com")
+  body(class="bg-gray-100 min-h-screen")
+    header.bg-white.shadow
+      .max-w-4xl.mx-auto.py-4.px-4.flex.items-center.justify-between
+        a(href="/", class="text-xl font-bold") MyLibrary
+        nav(class="space-x-4")
+          if user
+            a(href="/books", class="hover:underline") Livres
+            a(href="/logout", class="hover:underline") Déconnexion
+          else
+            a(href="/login", class="hover:underline") Connexion
+            a(href="/register", class="hover:underline") Inscription
+    main.max-w-4xl.mx-auto.px-4.py-8
+      block content

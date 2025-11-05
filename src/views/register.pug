@@ -1,0 +1,40 @@
+//- views/register.pug
+extends layout
+
+block content
+  h1.text-3xl.font-bold.mb-6 Inscription
+
+  if error === 'missing'
+    p.mb-4.p-3.bg-red-100.border.border-red-300.rounded
+      | Merci de remplir tous les champs.
+  else if error === 'nomatch'
+    p.mb-4.p-3.bg-red-100.border.border-red-300.rounded
+      | Les mots de passe ne correspondent pas.
+  else if error === 'exists'
+    p.mb-4.p-3.bg-red-100.border.border-red-300.rounded
+      | Cet utilisateur ou email existe déjà.
+  else if error
+    p.mb-4.p-3.bg-red-100.border.border-red-300.rounded
+      | Une erreur est survenue.
+
+  .bg-white.rounded.shadow.p-6
+    form(method="post", action="/register", class="space-y-4")
+      //- ATTENTION: classes avec ":" -> via class=""
+      div(class="grid grid-cols-1 md:grid-cols-2 gap-4")
+        label.block
+          span.block.mb-1.text-sm.text-gray-700 Nom d'utilisateur
+          input.border.rounded.p-2.w-full(type="text", name="username", required)
+        label.block
+          span.block.mb-1.text-sm.text-gray-700 Email
+          input.border.rounded.p-2.w-full(type="email", name="email", required)
+        label.block
+          span.block.mb-1.text-sm.text-gray-700 Mot de passe
+          input.border.rounded.p-2.w-full(type="password", name="password", minlength="6", required)
+        label.block
+          span.block.mb-1.text-sm.text-gray-700 Confirmation
+          input.border.rounded.p-2.w-full(type="password", name="confirm", minlength="6", required)
+      button.border.rounded.px-4.py-2(type="submit") Créer mon compte
+
+    p.text-sm.mt-3
+      | Déjà inscrit ?
+      a(href="/login", class="text-blue-600 hover:underline") Connecte-toi
