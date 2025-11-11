@@ -1,0 +1,6 @@
+npm i -D typescript
+npm i -D typescript @types/node @types/express @types/cors @types/mongoose  
+npm i dotenv
+npm run build:backend
+npm run build:frontend  
+npm start

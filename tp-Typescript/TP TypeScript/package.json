@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "build:backend": "tsc -p tsconfig.backend.json",
+    "build:frontend": "tsc -p tsconfig.frontend.json",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start": "node Backend/dist/server.js",
+    "watch:backend": "tsc -w -p tsconfig.backend.json",
+    "watch:frontend": "tsc -w -p tsconfig.frontend.json"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.25",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.19.24",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
+  }
+}
